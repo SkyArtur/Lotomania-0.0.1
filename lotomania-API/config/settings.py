@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'corsheaders',
     # Local apps
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,8 @@ REST_FRAMEWORK = {
     ),
     "PAGE_SIZE": 10,
 }
+
+AUTH_USER_MODEL = 'core.BettorUser'
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
