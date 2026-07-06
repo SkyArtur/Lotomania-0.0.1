@@ -12,6 +12,7 @@ class Bet(models.Model):
     mirror = models.BooleanField(default=True)
     numbers = models.ManyToManyField('Number', related_name='bets', through='BetNumber')
     contests = models.ManyToManyField('Contest', related_name='bets', through='BetContest')
+    user = models.ForeignKey('BettorUser', on_delete=models.CASCADE, related_name='bets', null=True, blank=True, default=None)
 
     class Meta:
         db_table = 'bet'

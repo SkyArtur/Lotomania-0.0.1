@@ -2,7 +2,7 @@ from .parsers import *
 from .extractors import extract_contests, extract_bets
 from .readers import csv_reader
 from .formatters import money_formatter
-from .validators import validate_range_points
+from .validators import validate_range_points, validate_username
 
 
 __all__ = [
@@ -15,5 +15,6 @@ __all__ = [
     'extract_contests',
     'extract_bets',
     'money_formatter',
-    'validate_range_points'
+    'validate_range_points',
+    'validate_username'
 ]

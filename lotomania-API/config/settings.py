@@ -72,6 +72,8 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
+AUTH_USER_MODEL = 'core.BettorUser'
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
