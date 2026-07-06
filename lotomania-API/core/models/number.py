@@ -15,6 +15,6 @@ class Number(models.Model):
 
     class Meta:
         db_table = 'number'
-        verbose_name = 'Number'
-        verbose_name_plural = 'Numbers'
+        verbose_name = 'Número'
+        verbose_name_plural = 'Números'
         ordering = ['value']
