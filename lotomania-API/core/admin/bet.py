@@ -26,10 +26,10 @@ class BetResultInline(admin.TabularInline):
 
 @admin.register(Bet)
 class BetAdmin(admin.ModelAdmin):
-    list_display = ('id', 'bet_date', 'value', 'user', 'valid_contests', 'contests_held', 'numbers_bet', 'mirror')
+    list_display = ('id', 'bet_date', 'value', 'bettor', 'valid_contests', 'contests_held', 'numbers_bet', 'mirror')
     search_fields = ('id', 'date')
     list_display_links = ('id', 'bet_date')
-    list_filter = ('date', 'user',)
+    list_filter = ('date', 'bettor',)
     list_per_page = 25
     inlines = [BetNumberInline, BetContestInline, BetPrizeInline, BetPrizeInline]
 

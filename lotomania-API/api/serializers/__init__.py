@@ -1,4 +1,5 @@
 from .number import NumberSerializer
+from .bettor import BettorSerializer, BettorRegisterSerializer
 from .contest import (
     ContestPrizeSerializer,
     ContestSerializer,
@@ -22,6 +23,9 @@ from .bet import (
 
 __all__ = [
     'NumberSerializer',
+
+    'BettorSerializer',
+    'BettorRegisterSerializer',
 
     'ContestPrizeSerializer',
     'ContestSerializer',

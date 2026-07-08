@@ -58,9 +58,14 @@ class BetViewSet(
     mixins.DestroyModelMixin,
     GenericViewSet
 ):
-    queryset = Bet.objects.prefetch_related('numbers', 'contests', 'prizes', 'results')
+    queryset = Bet.objects.all()
     lookup_field = 'id'
     http_method_names = ['get', 'post', 'delete', 'head', 'options']
+
+    def get_queryset(self):
+        return (
+            Bet.objects.filter(bettor=self.request.user).prefetch_related('contests', 'numbers', 'prizes')
+        )
 
     def get_serializer_class(self):
         match self.action:
@@ -77,7 +82,7 @@ class BetViewSet(
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        post_bet(serializer.validated_data)
+        post_bet(request, serializer.validated_data)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 

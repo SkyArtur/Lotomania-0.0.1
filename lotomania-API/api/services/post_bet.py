@@ -12,10 +12,10 @@ from .creates import (
 __all__ = ['post_bet']
 
 
-def post_bet(bet: dict) -> bool:
+def post_bet(request, bet: dict) -> bool:
     try:
         with transaction.atomic():
-            new_bet = create_bet(bet)
+            new_bet = create_bet(request, bet)
             bulk_create_any_number(new_bet, bet['numbers'])
             bulk_create_bet_contest(new_bet)
             bulk_create_bet_result(new_bet)
