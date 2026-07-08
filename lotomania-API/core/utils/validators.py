@@ -13,7 +13,7 @@ def validators_decorator(func: Callable) -> Callable:
         try:
             return func(*args, **kwargs)
         except (AttributeError, TypeError, ValueError) as e:
-            raise ValidationError(e.message)
+            raise ValidationError(str(e))
     return wrapper
 
 
