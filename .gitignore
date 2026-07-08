@@ -385,3 +385,4 @@ lotomania-API/core/migrations/*_seed_bets.py
 /conversa.md
 /AGENTS.ms
 /lab/
+.claude/
