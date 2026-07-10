@@ -38,6 +38,8 @@ services:
       DJANGO_ENV: production
     ports:
       - "8080:8080"
+    volumes:
+      - ../core/data:/app/core/data:ro
     depends_on:
       db:
         condition: service_healthy
@@ -57,6 +59,8 @@ services:
     environment:
       DJANGO_ENV: production
     command: ["celery", "-A", "config", "worker", "-l", "info"]
+    volumes:
+      - ../core/data:/app/core/data:ro
     depends_on:
       db:
         condition: service_healthy
