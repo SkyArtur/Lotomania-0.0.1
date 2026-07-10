@@ -134,3 +134,7 @@ processados normalmente — a falha é reportada ao final sem interromper o lote
 ```bash
 python manage.py test core.tests api.tests
 ```
+
+## Licença
+
+Distribuído sob a licença MIT — veja [LICENSE](LICENSE).
