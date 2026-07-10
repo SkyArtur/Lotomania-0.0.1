@@ -377,11 +377,12 @@ poetry.toml
 pyrightconfig.json
 
 # Project
-api-lotomania/core/data/apostas.csv
-api-lotomania/core/migrations/*_seed_bets.py
+lotomania-API/core/data/apostas.csv
+lotomania-API/core/migrations/*_seed_bets.py
 
 # Project Artifacts
 /pull_request.md
 /conversa.md
 /AGENTS.ms
 /lab/
+.claude/
