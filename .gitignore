@@ -377,7 +377,8 @@ poetry.toml
 pyrightconfig.json
 
 # Project
-lotomania-API/core/data/apostas.csv
+!lotomania-API/core/data/
+lotomania-API/core/data/*.csv
 lotomania-API/core/migrations/*_seed_bets.py
 
 # Project Artifacts
