@@ -6,7 +6,7 @@ from rest_framework.viewsets import GenericViewSet
 from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from core.models import BettorUser
-from api.serializers import BettorSerializer, BettorRegisterSerializer
+from api.serializers import BettorSerializer, BettorRegisterSerializer, BettorProfileSerializer
 
 
 __all__ = ['BettorViewSet']
@@ -24,8 +24,11 @@ class BettorViewSet(mixins.CreateModelMixin, GenericViewSet):
     http_method_names = ['get', 'post', 'head', 'options']
 
     def get_serializer_class(self):
-        if self.action == 'create':
-            return BettorRegisterSerializer
+        match self.action:
+            case 'create':
+                return BettorRegisterSerializer
+            case 'me':
+                return BettorProfileSerializer
         return BettorSerializer
 
     def get_permissions(self):
