@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+    --bg-image-sunshine: url("assets/bg_image_sunshine.jpg");
+}
+
+@utility bg-app-image-* {
+    background-image: --value(--bg-image-*);
+    background-position: center;
+    background-size: cover;
+}
