@@ -19,14 +19,13 @@ export default function Login() {
             <div className={"w-full flex items-center justify-center"}>
                 <span className="ps-2 flex justify-center items-center text-xl h-5"></span>
             </div>
-            <div className={'flex flex-wrap-reverse items-center justify-center w-full'}>
-                <div className={'w-1/2 min-w-75 sm:h-full flex flex-col items-center justify-around gap-2 py-2'}>
-                    <h3 className={'text-xl font-semibold invisible sm:visible'}>Acompanhamento de apostas</h3>
-                    <p className={'text-gray-800 text-justify italic px-2 invisible sm:visible'}>
+            <div className={'flex flex-wrap items-center justify-center w-full'}>
+                <div className={'w-1/2 min-w-75 sm:h-full flex flex-col items-center justify-start gap-2 py-2'}>
+                    <h3 className={'text-xl font-semibold'}>Acompanhamento de apostas</h3>
+                    <small className={'text-gray-800 text-sm text-justify italic px-2 max-w-65'}>
                         Aplicação para uso pessoal no gerenciamento de apostas na Lotomania. Modalidade de loteria
                         oferecida pela Caixa Econômica Federal.
-                    </p>
-                    <small className={'text-xs'}>Copyright (c) 2026 Artur dos Santos Shon</small>
+                    </small>
                 </div>
                 <div className={'w-1/2 min-w-75 sm:h-full'}>
                     <form onSubmit={handleSubmit} className="w-full py-3 flex flex-col items-center justify-center gap-2">

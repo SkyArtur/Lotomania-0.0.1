@@ -22,7 +22,7 @@ export default function Register() {
             <div className={'flex flex-col items-center justify-center w-full'}>
                 <div className={'max-w-100 min-w-75 sm:h-full flex flex-col items-center justify-around gap-2 py-2'}>
                     <h3 className={'text-xl font-semibold'}>Registre seu usuário e senha</h3>
-                    <small className={'text-gray-800 text-sm text-justify italic px-2'}>
+                    <small className={'text-gray-800 text-sm text-justify italic px-2 max-w-65'}>
                         Observe o limite de 15 caracteres para o campo username e o mínimo de 8 caracteres
                         para o campo password.
                     </small>
