@@ -3,16 +3,25 @@ import { useState } from 'react';
 
 import Input from "../components/Input.jsx";
 import Button from "../components/Button.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        navigate('/')
+        try {
+            await login(username, password);
+            navigate('/')
+        } catch {
+            setError('Usuário ou senha inválidos.')
+        }
+
     }
 
     return (
@@ -32,6 +41,7 @@ function Login() {
                     <form onSubmit={handleSubmit} className="w-full py-3 flex flex-col items-center justify-center gap-2">
                         <Input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        {error && <p className={'text-sm text-red-600'}>{error}</p>}
                         <div className="w-full px-3 py-2 flex flex-col items-center justify-center gap-2">
                             <Button classes={'max-w-75'} text={'Entrar'} type="submit" />
                         </div>
