@@ -1,11 +1,11 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useState } from 'react';
-import { TfiReload } from "react-icons/tfi";
 
 import Input from "../components/Input.jsx";
 import Button from "../components/Button.jsx";
 
-export default function Register() {
+
+function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -21,9 +21,9 @@ export default function Register() {
             </div>
             <div className={'flex flex-col items-center justify-center w-full'}>
                 <div className={'max-w-100 min-w-75 sm:h-full flex flex-col items-center justify-around gap-2 py-2'}>
-                    <h3 className={'text-xl font-semibold'}>Registre seu usuário e senha</h3>
+                    <h3 className={'text-xl font-semibold text-blue-900'}>Registre seu usuário e senha</h3>
                     <small className={'text-gray-800 text-sm text-justify italic px-2 max-w-65'}>
-                        Observe o limite de 15 caracteres para o campo username e o mínimo de 8 caracteres
+                        Observe um limite de 15 caracteres para o campo username e o mínimo de 8 caracteres
                         para o campo password.
                     </small>
                 </div>
@@ -43,3 +43,5 @@ export default function Register() {
         </div>
     )
 }
+
+export default Register
