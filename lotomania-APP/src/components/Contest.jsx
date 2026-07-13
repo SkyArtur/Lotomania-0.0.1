@@ -1,5 +1,4 @@
 import Currency from "./Currency.jsx";
-import Input from "./Input.jsx";
 
 function Contest({ contest }) {
 
