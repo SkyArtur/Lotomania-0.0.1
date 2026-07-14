@@ -12,7 +12,7 @@ function RequireAuth() {
 
 function Main() {
     return (
-        <main className={"w-full h-full max-h-screen overflow-y-auto flex items-center justify-center"}>
+        <main className={"w-full h-full max-h-screen overflow-y-auto flex items-center justify-center scrollbar-app"}>
             <Routes>
                 <Route element={<RequireAuth />}>
                     <Route path="/" element={<Dashboard />} />
