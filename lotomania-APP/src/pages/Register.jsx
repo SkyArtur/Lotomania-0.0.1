@@ -7,7 +7,6 @@ import Input from '../components/Input.jsx'
 import Button from '../components/Button.jsx'
 
 
-
 function Register() {
 
     const [ username, setUsername ] = useState('')
@@ -62,7 +61,9 @@ function Register() {
                                placeholder={ 'Confirm Password' }
                                value={ confirmPassword }
                                onChange={ (e) => setConfirmPassword(e.target.value) }/>
-                        {error && <p className={ 'text-sm text-red-600' }>{ error }</p>}
+                        <div className={ 'h-7 max-w-75' }>
+                            { error && <p className={'text-sm text-red-600'}>{ error }</p> }
+                        </div>
                         <div className={ 'w-full px-3 py-2 flex items-center justify-around gap-2' }>
                             <Button classes={ 'max-w-45' } text={ 'Registrar' } type={ 'submit' }/>
                         </div>
