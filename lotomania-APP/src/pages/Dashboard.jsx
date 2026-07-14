@@ -1,8 +1,9 @@
-import {getLatestContest, getLatestBet, getMe} from '../api/getters.jsx';
+import { getLatestContest, getLatestBet, getMe } from '../api/getters.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
-import {useApi} from "../hooks/useApi.js";
+import { useApi } from "../hooks/useApi.js";
 import Bettor from '../components/Bettor.jsx';
 import Contest from "../components/Contest.jsx";
+import Bet from "../components/Bet.jsx";
 
 
 function Dashboard() {
@@ -12,9 +13,18 @@ function Dashboard() {
     const { data: bet } = useApi(() => getLatestBet(token), [token]);
 
     return (
-        <div className="container px-2 py-1 flex flex-col items-start justify-start h-full">
-            <Bettor bettor={bettor} />
-            <Contest contest={contest} />
+        <div className="container py-1 flex flex-col items-start justify-start h-full">
+            <div className={'w-full flex flex-col justify-center items-center gap-1 bg-mist-100'}>
+                <Bettor bettor={bettor} />
+                <nav className={'w-full flex items-center justify-center'}>
+
+                </nav>
+            </div>
+
+            <div className={'w-full flex py-2 justify-center items-start flex-wrap gap-2'}>
+                <Bet bet={bet}/>
+                <Contest contest={contest} />
+            </div>
         </div>
     )
 }
