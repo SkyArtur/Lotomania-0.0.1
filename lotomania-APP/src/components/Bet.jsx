@@ -1,21 +1,21 @@
 import { LuPanelTopOpen, LuPanelTopClose } from 'react-icons/lu'
-import { FaEyeSlash, FaEye } from 'react-icons/fa6'
 import { useState } from 'react'
 import Currency from './Currency.jsx'
 
 
 function Bet ({ bet }) {
-    if (!bet) return null
-
     const [ showNumbers, setShowNumbers ] = useState(false)
     const [ showResults, setShowResults ] = useState(false)
+
+    if (!bet) return null
+
     const date = new Date(bet.date).toLocaleDateString('pt-BR')
     const prizes = [ ...bet.prizes ].sort((a, b) => b.points - a.points)
     const stringNumbers = (number) => String(number).padStart(2, '0')
 
     return (
-        <div className={ 'max-w-180 min-w-96 w-full flex flex-col items-center justify-center gap-1 p-3 bg-mist-100 rounded-md' }>
-            <div className={ 'w-full flex items-center justify-between gap-1' }>
+        <div className={ 'max-w-2xl w-full flex flex-col items-center justify-center gap-1 p-3 bg-mist-100 rounded-sm select-none' }>
+            <div className={ 'w-full flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-2' }>
                 <div className={ 'relative ps-2' }>
                     <small className={ 'absolute -top-2 left-0 text-xs font-mono text-mist-500' }>Aposta</small>
                     <h3 className={ 'text-2xl text-orange-500 font-bold' }>
@@ -40,10 +40,10 @@ function Bet ({ bet }) {
                 <div className={ 'text-blue-900 font-semibold' }>Números Apostados</div>
                 <button type={ 'button' }
                         onClick={ () => setShowNumbers(!showNumbers) }
-                        className={ 'cursor-pointer select-none' }>
+                        className={ 'cursor-pointer text-mist-500 hover:text-mist-800' }>
                     { !showNumbers
-                        ? <FaEyeSlash size={ 20 } className={ 'text-red-500 hover:text-red-400' } />
-                        : <FaEye size={ 20 } className={ 'text-mist-800 hover:text-mist-600' }/>
+                        ? <LuPanelTopOpen size={ 20 } />
+                        : <LuPanelTopClose size={ 20 }/>
                     }
                 </button>
             </div>
@@ -61,10 +61,10 @@ function Bet ({ bet }) {
                 <div className={ 'text-blue-900 font-semibold' }>Resultados</div>
                 <button type={ 'button' }
                         onClick={ () => setShowResults(!showResults) }
-                        className={ 'cursor-pointer select-none' }>
+                        className={ 'cursor-pointer text-mist-500 hover:text-mist-800' }>
                     { !showResults
-                        ? <LuPanelTopOpen size={ 20 } className={ 'text-red-500 hover:text-red-400' } />
-                        : <LuPanelTopClose size={ 20 } className={ 'text-mist-800 hover:text-mist-600' }/>
+                        ? <LuPanelTopOpen size={ 20 } />
+                        : <LuPanelTopClose size={ 20 }/>
                     }
                 </button>
             </div>

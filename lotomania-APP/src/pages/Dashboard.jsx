@@ -15,12 +15,11 @@ function Dashboard() {
     const { data: bet } = useApi(() => getLatestBet(token), [token])
 
     return (
-        <div className={ 'container py-1 flex flex-col items-start justify-start h-full' }>
-            <div className={ 'w-full flex flex-col justify-center items-center gap-1 bg-mist-100' }>
+        <div className={ 'w-full relative flex flex-col items-center justify-start h-full' }>
+            <div className={ 'w-full sticky top-0 z-50 flex flex-col justify-center items-center gap-1 bg-mist-100' }>
                 <Bettor bettor={ bettor } />
                 <Navbar />
             </div>
-
             <div className={ 'w-full flex py-2 justify-center items-start flex-wrap gap-2' }>
                 <Bet bet={ bet }/>
                 <Contest contest={ contest } />
