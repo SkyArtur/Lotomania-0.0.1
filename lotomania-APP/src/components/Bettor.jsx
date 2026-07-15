@@ -1,11 +1,7 @@
-import {Link} from "react-router";
-import { IoMdExit } from "react-icons/io";
-import Currency from "./Currency.jsx";
-import { useAuth } from "../context/AuthContext.jsx";
+import Currency from './Currency.jsx'
 
 
-function Bettor({bettor}) {
-    const { logout } = useAuth();
+function Bettor({ bettor }) {
 
     if (!bettor) {
         bettor = {
@@ -13,33 +9,33 @@ function Bettor({bettor}) {
             username: 'loading...',
             total_prizes: 0,
             total_wagered: 0,
-        };
+        }
     }
 
     return (
-        <div className={'w-full px-2 py-1 flex items-center justify-center gap-2 select-none'}>
-            <div className={'w-fit p-1 flex flex-col items-center justify-center'}>
-                <div className={'flex flex-col items-start justify-center'}>
-                    <small className={'text-[.7rem] font-mono text-mist-500'}>apostador #{bettor.id}</small>
-                    <h3 className={'text-2xl p-0 m-0 font-bold text-blue-900'}>{bettor.username}</h3>
+        <div className={ 'w-full py-1 flex items-center justify-center select-none' }>
+            <div className={ 'w-full max-w-2xl flex flex-wrap items-center justify-center sm:justify-between gap-2' }>
+                <div className={ 'w-fit p-1 flex items-center justify-center' }>
+                    <div className={ 'relative flex flex-col items-start justify-center' }>
+                        <small className={ 'absolute -top-2 -left-3 text-[.7rem] font-mono text-mist-500' }>apostador #{ bettor.id }</small>
+                        <h3 className={ 'text-2xl p-0 m-0 font-bold text-blue-900' }>{ bettor.username }</h3>
+                    </div>
                 </div>
-                <Link to={"/login"} onClick={logout} className={'self-end text-xs text-mist-500 font-mono flex items-center gap-1 hover:text-red-500'}>
-                    sair <IoMdExit size={15} />
-                </Link>
+                <div className={ 'w-fit flex items-center justify-end gap-2' }>
+                    <div className={ 'w-25 p-1 relative flex flex-col items-center justify-center gap-1' }>
+                        <p className={ 'absolute w-fit -top-2 left-0 text-[.7rem] text-mist-500 font-mono self-start truncate' }>Total Apostado</p>
+                        <p className={ 'text-sm self-end font-bold' }>{ <Currency amount={ bettor.total_wagered } /> }</p>
+                    </div>
+                    <div className={ 'w-25 p-1 relative flex flex-col items-center justify-center gap-1'}>
+                        <p className={ 'absolute w-fit -top-2 left-0 text-[.7rem] text-mist-500 font-mono self-start truncate'}>Total em prêmios</p>
+                        <p className={ 'text-sm self-end font-bold'}>{ <Currency amount={ bettor.total_prizes } /> }</p>
+                    </div>
+                </div>
             </div>
-            <div className={'w-3/4 flex items-center justify-center gap-2'}>
-                <div className={'w-fit p-1 flex flex-col items-center justify-center gap-1'}>
-                    <p className={'text-xs text-mist-500 font-mono self-start'}>Total Apostado</p>
-                    <p className={'text-sm self-end font-bold'}>{<Currency amount={bettor.total_wagered} />}</p>
-                </div>
-                <div className={'w-fit p-1 flex flex-col items-center justify-center gap-1'}>
-                    <p className={'text-xs text-mist-500 font-mono self-start'}>Total em prêmios</p>
-                    <p className={'text-sm self-end font-bold'}>{<Currency amount={bettor.total_prizes} />}</p>
-                </div>
-            </div>
+
         </div>
     )
 }
 
 
-export default Bettor;
+export default Bettor

@@ -8,8 +8,8 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 
 function App() {
     return (
-        <div className="h-auto flex flex-col items-center justify-center bg-app-image-sunshine text-gray-900 ">
-            <div className="container flex flex-col items-center justify-between h-screen max-h-screen bg-mist-200">
+        <div className={ 'h-auto flex items-center justify-center bg-app-image-sunshine text-mist-800' }>
+            <div className={ 'container max-w-5xl flex flex-col items-center justify-between h-screen max-h-screen bg-mist-200' }>
                 <AuthProvider>
                     <BrowserRouter>
                         <Header />
