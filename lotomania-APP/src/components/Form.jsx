@@ -250,11 +250,12 @@ function Form({ bet = false, onClose, onSuccess }) {
                             const limitReached = selectedNumbers.length >= limit_numbers
 
                             return (
-                                <div key={ number } className={ 'flex items-center justify-center w-8 h-8 md:w-10 md:h-10 ' +
-                                    'p-0.5 rounded-full bg-mist-500 hover:bg-orange-500 has-checked:bg-orange-500 ' +
+                                <div key={ number } className={ 'flex items-center justify-center ' +
+                                    'sm:w-10 w-7 sm:h-10 h-7 p-0.5 rounded-xs sm:rounded-full ' +
+                                    'bg-mist-500 hover:bg-orange-500 has-checked:bg-orange-500 ' +
                                     'transition-all duration-300 ease-in-out' }>
-                                    <label className={ 'text-base font-semibold w-full h-full flex items-center justify-center ' +
-                                        'rounded-full transition-all duration-300 ease-in-out cursor-pointer bg-mist-200 ' +
+                                    <label className={ 'text-sm sm:text-base font-semibold w-full h-full flex items-center justify-center ' +
+                                        'rounded-xs sm:rounded-full transition-all duration-300 ease-in-out cursor-pointer bg-mist-200 ' +
                                         'has-checked:bg-mist-100 has-checked:text-blue-900 ' +
                                         'has-disabled:cursor-not-allowed has-disabled:opacity-30' }>
                                         { String(number).padStart(2, '0') }
