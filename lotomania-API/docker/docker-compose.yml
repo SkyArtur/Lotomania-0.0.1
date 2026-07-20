@@ -36,6 +36,7 @@ services:
       - ../.env
     environment:
       DJANGO_ENV: production
+      DEBUG: "False"
     ports:
       - "8080:8080"
     volumes:
@@ -58,6 +59,7 @@ services:
       - ../.env
     environment:
       DJANGO_ENV: production
+      DEBUG: "False"
     command: ["celery", "-A", "config", "worker", "-l", "info"]
     volumes:
       - ../core/data:/app/core/data:ro
@@ -78,6 +80,7 @@ services:
       - ../.env
     environment:
       DJANGO_ENV: production
+      DEBUG: "False"
     command: ["celery", "-A", "config", "beat", "-l", "info"]
     depends_on:
       db:
