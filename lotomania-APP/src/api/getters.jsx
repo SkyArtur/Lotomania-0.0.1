@@ -5,3 +5,5 @@ export const getMe = (token) => apiFetch('/bettors/me/', { token })
 export const getLatestContest = (token) => apiFetch('/contests/latest/', { token })
 
 export const getLatestBet = (token) => apiFetch('/bets/latest/', { token })
+
+export const getNumbers = (token) => apiFetch('/numbers/all/', { token })

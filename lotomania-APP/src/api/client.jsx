@@ -10,8 +10,12 @@ export async function apiFetch(path, { method = 'GET', body, token } = {}) {
         body: body ? JSON.stringify(body) : undefined,
     })
     if (!response.ok) {
-        const error = await response.json().catch(() => ({}))
-        throw new Error(error.detail ?? 'Erro de requisição')
+        const errorBody = await response.json().catch(() => ({}))
+        const [ firstFieldError ] = Object.values(errorBody)
+        const message = errorBody.detail
+            ?? (Array.isArray(firstFieldError) ? firstFieldError[0] : firstFieldError)
+            ?? 'Erro de requisição.'
+        throw new Error(message)
     }
     return response.json()
 }
