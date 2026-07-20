@@ -1,0 +1,17 @@
+name: lotomania-app
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - shared
+
+networks:
+  shared:
+    name: lotomania-net
+    external: true
