@@ -1,4 +1,4 @@
-import { BiSolidErrorCircle, BiSolidErrorAlt, BiSolidError } from 'react-icons/bi'
+import { BiSolidErrorAlt, BiSolidError, BiSolidCheckCircle, BiSolidInfoCircle } from 'react-icons/bi'
 
 const COLORS = {
     error: 'text-red-500',
@@ -9,8 +9,8 @@ const COLORS = {
 
 const ICONS = {
     error: <BiSolidErrorAlt size={ 20 } />,
-    success: <BiSolidErrorCircle size={ 20 } />,
-    info: <BiSolidErrorCircle size={ 20 } />,
+    success: <BiSolidCheckCircle size={ 20 } />,
+    info: <BiSolidInfoCircle size={ 20 } />,
     warning: <BiSolidError size={ 20 } />,
 }
 
