@@ -4,7 +4,7 @@ import {LuPanelTopClose, LuPanelTopOpen} from "react-icons/lu";
 
 
 function Contest({ contest }) {
-    const [ showNumbers, setShowNumbers ] = useState(false)
+    const [ showNumbers, setShowNumbers ] = useState(true)
 
     if (!contest) return null
 
