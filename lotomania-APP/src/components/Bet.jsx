@@ -11,6 +11,7 @@ function Bet ({ bet }) {
 
     const date = new Date(bet.date).toLocaleDateString('pt-BR')
     const prizes = [ ...bet.prizes ].sort((a, b) => b.points - a.points)
+    const results = [ ...bet.results ].sort((a, b) => b.contest - a.contest)
     const stringNumbers = (number) => String(number).padStart(2, '0')
 
     return (
@@ -74,14 +75,14 @@ function Bet ({ bet }) {
                     <div className={ 'text-[.90rem] flex items-center justify-center' }>Pontos</div>
                     <div className={ 'text-[.90rem] flex items-center justify-center' }>Espelho</div>
                 </div>
-                { bet.results.slice(0, 1).map((result) => (
+                { results.slice(0, 1).map((result) => (
                     <div key={ result.contest } className={ 'w-full grid max-w-100 grid-cols-3 gap-3 text-sm font-mono text-center' }>
                         <div className={ 'flex items-center justify-center' }>{ result.contest }</div>
                         <div className={ 'flex items-center justify-center' }>{ result.hits }</div>
                         <div className={ 'flex items-center justify-center' }>{ result.mirror_hits }</div>
                     </div>
                 )) }
-                { showResults && bet.results.slice(1).map((result) => (
+                { showResults && results.slice(1).map((result) => (
                     <div key={ result.contest } className={ 'w-full max-w-100 grid grid-cols-3 gap-3 text-sm font-mono text-center' }>
                         <div className={ 'flex items-center justify-center' }>{ result.contest }</div>
                         <div className={ 'flex items-center justify-center' }>{ result.hits }</div>
