@@ -14,6 +14,8 @@ import Message from "./Message.jsx";
 
 const VALID_PRIZE_POINTS = [0, 15, 16, 17, 18, 19, 20]
 
+const parseDecimal = (value) => Number(String(value).replace(',', '.'))
+
 function Form({ bet = false, onClose, onSuccess }) {
     const limit_numbers = bet ? 50 : 20
     const [ formBet ] = useState(bet)
@@ -65,7 +67,7 @@ function Form({ bet = false, onClose, onSuccess }) {
         const prizeData = {
             points: Number(formData.get('pointsPrizeContest')),
             winners: Number(formData.get('winnersPrizeContest')),
-            value: Number(formData.get('valuePrizeContest')),
+            value: parseDecimal(formData.get('valuePrizeContest')),
         }
 
         if (!VALID_PRIZE_POINTS.includes(prizeData.points)) {
@@ -104,7 +106,7 @@ function Form({ bet = false, onClose, onSuccess }) {
             if (formBet) {
                 await createBet(token, {
                     date: formData.get('dateBet'),
-                    value: Number(formData.get('valueBet')),
+                    value: parseDecimal(formData.get('valueBet')),
                     initial: Number(formData.get('initialContest')),
                     final: Number(formData.get('finalContest')),
                     mirror: true,
@@ -176,8 +178,9 @@ function Form({ bet = false, onClose, onSuccess }) {
                             </div>
                             <div className={ 'flex flex-col items-center justify-center gap-2' }>
                                 <label className={'text-xs self-start'}>Valor da Aposta</label>
-                                <Input type={ 'number' }
-                                       step={ '0.01' }
+                                <Input type={ 'text' }
+                                       inputMode={ 'decimal' }
+                                       pattern={ '[0-9]*[.,]?[0-9]*' }
                                        name={ 'valueBet' }
                                        id={ 'valueBet' }
                                        placeholder={ 'R$ 0,00' }
@@ -301,8 +304,9 @@ function Form({ bet = false, onClose, onSuccess }) {
                             <div className={ 'flex flex-col items-center justify-center gap-2' }>
                                 <label className={ 'text-mist-500 text-sm self-start' }>Valor</label>
                                 <Input width={ 'max-w-35' }
-                                       type={ 'number' }
-                                       step={ '0.01' }
+                                       type={ 'text' }
+                                       inputMode={ 'decimal' }
+                                       pattern={ '[0-9]*[.,]?[0-9]*' }
                                        id={ 'valuePrizeContest' }
                                        name={ 'valuePrizeContest' }
                                        placeholder={ 'R$ 0,00' } />
