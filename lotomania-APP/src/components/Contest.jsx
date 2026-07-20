@@ -14,20 +14,20 @@ function Contest({ contest }) {
 
     return (
         <div className={ 'max-w-2xl w-full flex flex-col items-center justify-center gap-1 p-3 bg-mist-100 rounded-sm select-none' }>
-            <div className={ 'w-full flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-2' }>
-                <div className={ 'relative ps-2' }>
-                    <small className={ 'absolute -top-2 left-0 text-xs font-mono text-mist-500' }>Concurso</small>
+            <div className={ 'w-full flex flex-wrap items-center justify-between gap-x-4 gap-y-2' }>
+                <div className={ 'flex flex-col justify-center items-center ps-2' }>
+                    <small className={ 'self-start text-[.65rem] font-mono text-mist-500' }>Concurso</small>
                     <h3 className={ 'text-2xl font-bold text-orange-500' }>
                         <span className={ 'text-mist-500' }>#</span> { contest.reference }
                     </h3>
                 </div>
-                <div className={ 'relative pe-2' }>
-                    <small className={ 'absolute -top-2 -left-2 text-xs font-mono text-mist-500' }>Data</small>
+                <div className={ 'flex flex-col justify-center items-center ps-2' }>
+                    <small className={ 'self-start text-[.65rem] font-mono text-mist-500' }>Data</small>
                     <h3 className={ 'text-base' }>{ date }</h3>
                 </div>
             </div>
             <div className={ 'pt-0.5 bg-mist-500 w-full inline' }></div>
-            <div className={ 'w-full flex items-center justify-between px-4 gap-1' }>
+            <div className={ 'w-full flex items-center justify-between px-4 py-1 gap-1' }>
                 <div className={ 'text-blue-900 font-semibold' }>Números Sorteados</div>
                 <button type={ 'button' }
                         onClick={ () => setShowNumbers(!showNumbers) }
@@ -46,10 +46,10 @@ function Contest({ contest }) {
                 )) }
             </div>
             <div className={ 'pt-0.5 bg-mist-500 w-full inline' }></div>
-            <div className={ 'w-full flex items-center justify-between px-4 gap-1' }>
+            <div className={ 'w-full flex items-center justify-between px-4 py-1 gap-1' }>
                 <div className={ 'text-blue-900 font-semibold' }>Premiação</div>
             </div>
-            <div className={ 'w-full flex flex-col items-center justify-center gap-1' }>
+            <div className={ 'w-full flex flex-col items-center justify-center px-4 py-2 gap-1' }>
                 <div className={ 'w-full max-w-100 grid grid-cols-3 gap-3 font-semibold text-center border-b-2 border-mist-500' }>
                     <div className={ 'text-[.90rem] flex items-center justify-center' }>Pontos</div>
                     <div className={ 'text-[.90rem] flex items-center justify-center' }>Ganhadores</div>
